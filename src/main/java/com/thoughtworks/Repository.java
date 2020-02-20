@@ -15,7 +15,8 @@ public interface Repository<E> {
 
     public abstract E delete(String id);
 
-    public abstract E update(String id, E entity);
+    public abstract void update(String id, E entity);
+
 
     public abstract List<E> list();
 

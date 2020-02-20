@@ -23,8 +23,8 @@ public class MemoryRepository<E> implements Repository<E> {
     }
 
     @Override
-    public E delete(String id) {
-        return this.allObj.remove(id);
+    public void delete(String id) {
+        this.allObj.remove(id);
     }
 
     @Override

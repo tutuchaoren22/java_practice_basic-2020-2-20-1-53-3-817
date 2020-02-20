@@ -8,7 +8,7 @@ public class App {
         Student zhaoLiu = new Student("6", "赵六");
         Student qianQi = new Student("7", "钱七");
 
-        MemoryRepository memoryRepository = new MemoryRepository();
+        MemoryRepository<Student> memoryRepository = new MemoryRepository<>();
         memoryRepository.save(zhangSan.getId(), zhangSan);
         memoryRepository.save(liSi.getId(), liSi);
         memoryRepository.save(wangWu.getId(), wangWu);

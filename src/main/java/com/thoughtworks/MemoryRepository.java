@@ -1,13 +1,12 @@
 package com.thoughtworks;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-//定义一个实现类 MemoryRepository 实现在内存中管理对象
-//        save(id, entity), 保存对象，并与一个String类型的 id 关联起来
-//        get(id), 根据 id 获取对象
-//        delete(id), 删除 id 对应的对象
-//        update(id, entity), 替换 id 对应的对象为新对象
-//        list(), 列出仓库中的所有对象
+
 public class MemoryRepository<E> implements Repository<E> {
     private Map<String, E> allObj = new HashMap<>();
 
@@ -17,7 +16,6 @@ public class MemoryRepository<E> implements Repository<E> {
     @Override
     public void save(String id, E entity) {
         this.allObj.put(id, entity);
-        System.out.println( this.allObj.size());
     }
 
     public E get(String id) {
@@ -30,8 +28,10 @@ public class MemoryRepository<E> implements Repository<E> {
     }
 
     @Override
-    public E update(String id, E entity) {
-        return this.allObj.put(id, entity);
+    public void update(String id, E entity) {
+        if (this.allObj.containsKey(id)) {
+            this.allObj.replace(id, entity);
+        }
     }
 
     @Override
@@ -46,8 +46,6 @@ public class MemoryRepository<E> implements Repository<E> {
 
     @Override
     public String toString() {
-        return "MemoryRepository{" +
-                "allObj=" + allObj +
-                '}';
+        return  this.allObj.toString();
     }
 }

@@ -46,6 +46,6 @@ public class MemoryRepository<E> implements Repository<E> {
 
     @Override
     public String toString() {
-        return  this.allObj.toString();
+        return this.allObj.toString();
     }
 }
